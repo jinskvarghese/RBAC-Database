@@ -64,8 +64,8 @@ This project implements a Role-Based Access Control (RBAC) system using React fo
      DB_HOST=localhost
      DB_PORT=5432
      DB_NAME=rbac_db
-     DB_USER=your_db_username
-     DB_PASSWORD=your_db_password
+     DB_USER=postgres
+     DB_PASSWORD=54321
      JWT_SECRET=your_secret_key
      ```
 4. Run migrations and seed data:
@@ -99,7 +99,7 @@ This project implements a Role-Based Access Control (RBAC) system using React fo
 ---
 
 ## Usage Guide
-1. **Login**: Use the seeded credentials for initial login (e.g., `admin@example.com` / `password123`).
+1. **Login**: Use the seeded credentials for initial login (e.g., `john.doe@example.com` / `password123`).
 2. **Access Dashboard**: Available to both `USER` and `ADMIN` roles.
 3. **Admin Panel**: Only accessible to `ADMIN` users.
 4. **Navigate Securely**: Unauthorized attempts redirect to an error or unauthorized page.
