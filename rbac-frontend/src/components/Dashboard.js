@@ -1,52 +1,54 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Grid, Card, CardContent, Typography, Button } from '@mui/material';
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    alert('Logged out successfully');
-    navigate('/');
-  };
-
   return (
-    <div style={styles.container}>
-      <h1>Dashboard</h1>
-      <p>Welcome to your dashboard! Use the links below to navigate:</p>
-      <div style={styles.navContainer}>
-        <button style={styles.navButton} onClick={() => navigate('/admin')}>
-          Admin Panel
-        </button>
-        <button style={styles.navButton} onClick={() => navigate('/register')}>
-          Register
-        </button>
-      </div>
-      <button onClick={handleLogout} style={styles.button}>
-        Logout
-      </button>
-    </div>
+    <Grid container spacing={3} style={{ padding: '20px' }}>
+      <Grid item xs={12}>
+        <Typography variant="h4" align="center" style={{ marginBottom: '20px' }}>
+          Welcome to the Dashboard
+        </Typography>
+      </Grid>
+      
+      <Grid item xs={12} md={6}>
+        <Card elevation={3}>
+          <CardContent>
+            <Typography variant="h6" gutterBottom>
+              Profile Overview
+            </Typography>
+            <Typography variant="body2">
+              Manage your profile details and preferences here.
+            </Typography>
+            <Button variant="outlined" color="primary" style={{ marginTop: '10px' }}>
+              Edit Profile
+            </Button>
+          </CardContent>
+        </Card>
+      </Grid>
+      
+      <Grid item xs={12} md={6}>
+        <Card elevation={3}>
+          <CardContent>
+            <Typography variant="h6" gutterBottom>
+              Recent Activities
+            </Typography>
+            <Typography variant="body2">
+              View your recent actions and updates.
+            </Typography>
+            <Button variant="outlined" color="secondary" style={{ marginTop: '10px' }}>
+              View Activity
+            </Button>
+          </CardContent>
+        </Card>
+      </Grid>
+      
+      <Grid item xs={12} style={{ marginTop: '20px' }}>
+        <Button variant="contained" color="secondary" fullWidth>
+          Logout
+        </Button>
+      </Grid>
+    </Grid>
   );
-};
-
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100vh',
-    backgroundColor: '#f4f4f9',
-  },
-  button: {
-    marginTop: '20px',
-    padding: '10px 20px',
-    backgroundColor: '#dc3545',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-  },
 };
 
 export default Dashboard;
